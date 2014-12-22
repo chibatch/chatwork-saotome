@@ -7,9 +7,6 @@ class Saotome
     /** @var GuzzleHttp\Client */
     private $client;
 
-    /** @var int 依頼者の組織ID */
-    private $organization_id = null;
-
     /**
      * コンストラクタ
      *
