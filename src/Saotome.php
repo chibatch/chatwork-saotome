@@ -34,32 +34,35 @@ class Saotome
     }
 
     /**
-     * 自分の情報をチェックする
+     * 依頼者の情報を取得
+     *
+     * @return array
      */
-    public function checkClientOrganization()
+    public function getClientInfo()
     {
-        $client = $this->client->get('/v1/me')->json();
-
-        $this->organization_id = $client['organization_id'];
+        return $this->client->get('/v1/me')->json();
     }
 
     /**
      * 自分のコンタクト一覧を取得する
      *
+     * @param  bool  同じ組織の人だけを取得する
      * @return array
      */
-    public function getContacts()
+    public function getContacts($same_organization = false)
     {
         $contacts = $this->client->get('/v1/contacts')->json();
 
-        if (is_null($this->organization_id)) {
+        if ($same_organization === false) {
             return $contacts;
         }
+
+        $client_info = $this->getClientInfo();
 
         $within = array();
 
         foreach ($contacts as $contact) {
-            if ($this->organization_id !== $contact['organization_id']) {
+            if ($client_info['organization_id'] !== $contact['organization_id']) {
                 continue;
             }
 
