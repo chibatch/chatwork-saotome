@@ -97,8 +97,9 @@ class Saotome
     /**
      * グループチャットに追加する
      *
-     * @param int   追加する人のアカウントID
-     * @param array 追加するグループチャットとその権限
+     * @param  int   追加する人のアカウントID
+     * @param  array 追加するグループチャットとその権限
+     * @return array
      */
     public function append($account_id, $rooms)
     {
@@ -169,7 +170,7 @@ class Saotome
      *
      * @param  int
      * @param  array
-     * @return string|null
+     * @return string|bool
      */
     private function alreadyJoined($account_id, $members)
     {
