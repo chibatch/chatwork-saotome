@@ -1,7 +1,9 @@
 # Saotome in da house
 
-# 使い方の例
+ChatWorkのAPIを使って特定の人をいろんなグループチャットに追加するためのライブラリです。
+（使用上起きた問題についての責任は負いかねます。ご自身の責任でお使いください！！！）
 
+# 使い方の例
 ```php
 $saotome = new Saotome('CHATWORK_API_TOKEN');
 
