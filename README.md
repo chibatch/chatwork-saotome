@@ -7,11 +7,12 @@ ChatWorkのAPIを使って特定の人をいろんなグループチャットに
 ```php
 $saotome = new Saotome('CHATWORK_API_TOKEN');
 
-// 同じ組織の人だけを取得したい場合
-// $saotome->checkClientOrganization();
-
 // コンタクトリストを取得
 $contact_list = $saotome->getContacts();
+
+// 同じ組織のコンタクトだけを取得したい場合
+// $contact_list = $saotome->getContacts(true);
+
 
 // 追加したい人
 $account_id = 98765432112345678765432123456787654321;
